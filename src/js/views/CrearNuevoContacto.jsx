@@ -5,7 +5,7 @@ const CrearNuevoContact = () => {
   return (
     <div className="d-grid">
       <div>
-        <h1 className="d-flex justify-content-center mt-5 mb-5">
+        <h1 className="d-flex justify-content-center mt-5 mb-2">
           Crear un nuevo contacto
         </h1>
       </div>
@@ -13,6 +13,7 @@ const CrearNuevoContact = () => {
       <div className="d-flex justify-content-center mt-5">
         <FormuContacto btnName={"Create"} />
       </div>
+
     </div>
   );
 };

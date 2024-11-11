@@ -1,21 +1,21 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 	  store: {
-		apiUrl: "https://playground.4geeks.com/contact/agendas/AgendaAlejandroC",
+		apiUrl: "https://playground.4geeks.com/contact/agendas/AgendaAlejandroCC",
 		contacts: [],
-		ContactEditado: {},
+		contactToEdit: {},
 		ConfirmacionEliminarContact: {},
 	  },
 	  actions: {
 		actualizarContactEditado: (contact) => {
-		  setStore({ ContactoEditado: contact });
+		  setStore({ contactToEdit: contact });
 		},
   
 
 
 
 		borrarContactConfirmacionEliminarContact: (contact) => {
-		  setStore({ ConfirmacionEliminarContacto: contact });
+		  setStore({ ConfirmacionEliminarContact: contact });
 		},
   
 
@@ -56,6 +56,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 		crearContact: async (contacto) => {
 		  const store = getStore();
+		  const actions = getActions();
 		  try {
 			const response = await fetch(store.apiUrl + "/contacts", {
 			  method: "POST",
@@ -67,6 +68,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			  },
 			});
 			if (response.ok) {
+				
+				 await actions.obtContacts()
 			  console.log("Contacto creado");
 			}
 		  } catch (e) {

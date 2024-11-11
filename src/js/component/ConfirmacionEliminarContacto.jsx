@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { Context } from '../store/AppContext.jsx';
 
-const EliminarContact = ({ modalTriggered, id, closeModal }) => {
+const EliminarContact = ({ modalTriggered, id, cerrarModal }) => {
   const { actions } = useContext(Context);
 
   async function handleEliminarContact() {
     try {
       await actions.borrarContact(id);
-      closeModal();
+      cerrarModal();
     } catch (error) {
       console.error("Error al eliminar el contacto:", error);
       alert("Hubo un problema al eliminar el contacto. Intenta nuevamente.");
@@ -26,7 +26,7 @@ const EliminarContact = ({ modalTriggered, id, closeModal }) => {
           <div className="modal-header">
             <h5 id="modalTitle" className="modal-title">¿Estás seguro amigo?</h5>
             <button
-              onClick={closeModal}
+              onClick={cerrarModal}
               type="button"
               className="btn-close"
               aria-label="Close"
@@ -37,7 +37,7 @@ const EliminarContact = ({ modalTriggered, id, closeModal }) => {
           </div>
           <div className="modal-footer">
             <button
-              onClick={closeModal}
+              onClick={cerrarModal}
               type="button"
               className="btn btn-secondary"
             >

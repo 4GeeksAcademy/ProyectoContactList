@@ -18,7 +18,7 @@ const InfoContact = ({ name, email, address, phone, id }) => {
   const navigate = useNavigate();
 
   function manipularParaEditar(contact) {
-    actions.actuContact(contact);
+    actions.actualizarContactEditado(contact);
     navigate("/actualizarContact");
   }
 
